@@ -14,7 +14,7 @@ const bucketName = "insider-img"
 
 module.exports.controllerFunction = function(app) {
 
-  /////////////////////////////////////////// Api to get all the lot details //////////////////////////////////////
+  /////////////////////////////////////////// Api to upload image //////////////////////////////////////
 
 
   uploadRouter.post('/upload',async function(req, res){
@@ -33,7 +33,7 @@ module.exports.controllerFunction = function(app) {
         s3bucketUpload.upload(bucketName, finalName, horizontal_small, 'horizontal_small'),
         s3bucketUpload.upload(bucketName, finalName, gallery, 'gallery')
       ])
-      
+
       var newImage = new imagesModel({
         name: finalName
       });// end new image
@@ -60,7 +60,7 @@ module.exports.controllerFunction = function(app) {
   });
 
 
-  /////////////////////////////////////////// Api to get all the lot details //////////////////////////////////////
+  /////////////////////////////////////////// Api to get all the image details //////////////////////////////////////
 
 
   uploadRouter.get('/allImages', function(req, res){
