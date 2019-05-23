@@ -62,10 +62,10 @@
           <i ng-show="imgCrop.myForm.file.$error.dimensions">File wrong size
             {{imgCrop.errorFiles.$ngfWidth + 'x' + imgCrop.errorFiles.$ngfHeight}}</i>
           <!-- <pre>{{errorFiles | json}}</pre> -->
-          <div style="margin: 20px 0 20px 80px;">
+          <div style="margin: 20px 0 20px 48px;">
               <img ng-show="imgCrop.myForm.file.$valid" ngf-thumbnail="imgCrop.picFile" class="thumb center" style="width: 100px; height: 100px;"/>
           </div>
-          <button class="btn btn-danger" id="remove" ng-click="imgCrop.destroy()" ng-show="imgCrop.picFile" style="margin-left:48px;">Remove</button>
+          <!-- <button class="btn btn-danger" id="remove" ng-click="imgCrop.destroy()" ng-show="imgCrop.picFile" style="margin-left:48px;">Remove</button> -->
         </fieldset>
         <br />
       </form>
@@ -75,7 +75,6 @@
         <div class="cropArea" id="cropArea2" style="zoom:25%"></div>
         <div class="cropArea" id="cropArea3" style="zoom:25%"></div>
         <div class="cropArea" id="cropArea4" style="zoom:25%"></div>
-
       </div>
       
       <!--=================================================== file upload card ends ======================================================-->

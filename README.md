@@ -10,6 +10,7 @@
 * Doesnot upload if different size
 * Cropping available for 4 sizes
 * Used backend itself to serve client for simplicity sake.
+* After clicking submit wait for images to get uploaded.
 
 ## Project Description
 ```
@@ -25,6 +26,7 @@ Images should not be stretched, and they should be cropped properly.
 
 5) Save all 4 of these images locally on the server 
 6) Show a webpage with all 4 of these new images.
+7) Images are sorted with latest on top.
 
 Bonus : Instead of saving these files to the server, upload them to a cloud image hosting service.
 
