@@ -9,6 +9,7 @@
 * Image should be 1024 x 1024
 * Doesnot upload if different size
 * Cropping available for 4 sizes
+* Used backend itself to serve client for simplicity sake.
 
 ## Project Description
 ```
