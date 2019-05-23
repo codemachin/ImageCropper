@@ -1,0 +1,134 @@
+<!--=================================================== start of navigation bar ======================================================-->
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#/" style="font-family: 'Lobster', cursive">Image crop and upload</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    
+
+    <ul class="navbar-nav my-2 my-lg-0">
+
+      
+      
+      <li class="nav-item active">
+        <a class="nav-link" style="cursor: pointer;">Demo purpose only</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#/upload">Upload new image</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!--=================================================== end of navigation bar ======================================================-->
+
+<div class="bgCustom" style="min-height: 100vh;padding-bottom: 100px">
+  <div class="container" style="padding-top: 80px">
+
+    <!--================================ warning card when there are no images ============================================-->
+
+      <div ng-if="myDash.images.length==0" class="card text-white bg-primary" style="padding: 2%;align-items: center;color: #004d40;margin: 0 8%;">
+        <h1>No products are uploaded. You need to upload products to start with.</h1><br>
+        <a href = "/#/upload" class="btn btn-light" style="width: 180px">Upload image now!</a>
+      </div>    
+      
+    <!--================================================= end of warning card ======================================================-->
+
+      
+      <!--=========================================     start of image card    =============================================-->
+
+      <div class="row">
+        <div class="col-sm-12" ng-repeat="item in myDash.images | orderBy:'-created'">
+          <div class="row">
+            <div class="col-sm-3">
+              <div style="text-align: center;color:white">Horizontal</div>
+              <div class="card ov" style="margin-bottom: 20px; display: flex;overflow-y: hidden;">
+                  <img ng-src="https://s3.amazonaws.com/insider-img/horizontal/{{item.name}}" class="img-responsive" style="width: 100%">
+                  <div class="overlay">
+                    <div class="text" style="text-align: center;">
+                      <p>{{item.name}}</p>
+                      <p>{{item.created | date:'medium'}}</p>
+                      <a href="https://s3.amazonaws.com/insider-img/horizontal/{{item.name}}">Download</a>
+                    </div>
+                  </div>
+              </div>
+            </div>
+  
+            <div class="col-sm-3">
+              <div style="text-align: center;color:white">Vertical</div>
+              <div class="card ov" style="margin-bottom: 20px; display: flex;overflow-y: hidden;">
+                <img ng-src="https://s3.amazonaws.com/insider-img/vertical/{{item.name}}" class="img-responsive"
+                  style="width: 100%">
+                <div class="overlay">
+                  <div class="text" style="text-align: center;">
+                    <p>{{item.name}}</p>
+                    <p>{{item.created | date:'medium'}}</p>
+                    <a href="https://s3.amazonaws.com/insider-img/horizontal/{{item.name}}">Download</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-sm-3">
+              <div style="text-align: center;color:white">Horizontal Small</div>
+              <div class="card ov" style="margin-bottom: 20px; display: flex;overflow-y: hidden;">
+                <img ng-src="https://s3.amazonaws.com/insider-img/horizontal_small/{{item.name}}" class="img-responsive"
+                  style="width: 100%">
+                <div class="overlay">
+                  <div class="text" style="text-align: center;">
+                    <p>{{item.name}}</p>
+                    <p>{{item.created | date:'medium'}}</p>
+                    <a href="https://s3.amazonaws.com/insider-img/horizontal/{{item.name}}">Download</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-sm-3">
+              <div style="text-align: center;color:white">Gallery</div>
+              <div class="card ov" style="margin-bottom: 20px; display: flex;overflow-y: hidden;">
+                <img ng-src="https://s3.amazonaws.com/insider-img/gallery/{{item.name}}" class="img-responsive"
+                  style="width: 100%">
+                <div class="overlay">
+                  <div class="text" style="text-align: center;">
+                    <p>{{item.name}}</p>
+                    <p>{{item.created | date:'medium'}}</p>
+                    <a href="https://s3.amazonaws.com/insider-img/horizontal/{{item.name}}">Download</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+
+        <!--=========================================     end of image card    =============================================-->
+
+
+      </div>
+
+  </div>
+</div>
+
+<!--=========================================     start of footer    =============================================-->
+
+<footer class="footmar">
+  <div>
+  <br>
+    Created and Designed by:
+    <br>
+    Vivek Shankar<br>
+    <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=viveksome@gmail.com" style="color: white;"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;viveksome@gmail.com</a><br>
+    <a href=""><i class="fa fa-facebook-square" aria-hidden="true" style="color: #3B5998"></i></a>
+    <a href=""><i class="fa fa-google-plus" aria-hidden="true" style="color: #D62221"></i></a>
+    <a href=""><i class="fa fa-twitter-square" aria-hidden="true" style="color: #1DA1F2"></i></a>
+
+  </div>
+</footer>
+
+<!--=========================================     end footer    =============================================-->

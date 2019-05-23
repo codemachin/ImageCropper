@@ -1,0 +1,106 @@
+<!--=================================================== start of navigation bar ======================================================-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#/" style="font-family: 'Lobster', cursive">Image crop and upload</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    
+
+    <ul class="navbar-nav my-2 my-lg-0">
+
+    
+      
+      <li class="nav-item active">
+        <a class="nav-link" style="cursor: pointer">Demo purpose only</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#/">Home</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--=================================================== end of navigation bar ======================================================-->
+
+<div class="bgCustom" style="min-height: 94.5vh;padding-bottom: 100px">
+  <div class="container" style="padding-top: 40px">
+    
+    <!--=================================================== file upload card starts ======================================================-->
+
+    <div class="card" style="padding: 2%">
+
+      <div class="alert alert-primary" role="alert">
+        Submit new image to start cropping.
+        <ul>
+          <li>Image has a recommended size of 1024 x 1024.</li>
+          <li>Doesn't upload the file if it’s not the right size.</li>
+          <li>Each image has to be cropped into 4 different sizes.</li>
+          <li>Rotate mouse wheel to scroll.</li>
+
+        </ul>
+      </div>
+
+      <!--start of file upload division-->
+      <form name="imgCrop.myForm">
+        <fieldset>
+          <legend>Upload on form submit</legend>
+          <i ng-show="imgCrop.myForm.userName.$error.required">*required</i>
+          <br />
+      
+      
+          Photo:
+          <input class="btn btn-primary" type="file" ngf-select="" ng-model="imgCrop.picFile" name="file" accept="image/*"
+            file-model = "imgCrop.picFile"
+            ngf-pattern="'.png,.jpg,.jpeg'" ng-click="imgCrop.destroy()"
+            ngf-dimensions="$width === 1024 && $height === 1024" required="" ngf-model-invalid="imgCrop.errorFiles"
+            />
+          
+          <i ng-show="imgCrop.myForm.file.$error.required">*required</i>
+          <br />
+          <i ng-show="imgCrop.myForm.file.$error.dimensions">File wrong size
+            {{imgCrop.errorFiles.$ngfWidth + 'x' + imgCrop.errorFiles.$ngfHeight}}</i>
+          <!-- <pre>{{errorFiles | json}}</pre> -->
+          <div style="margin: 20px 0 20px 80px;">
+              <img ng-show="imgCrop.myForm.file.$valid" ngf-thumbnail="imgCrop.picFile" class="thumb center" style="width: 100px; height: 100px;"/>
+          </div>
+          <button class="btn btn-danger" id="remove" ng-click="imgCrop.destroy()" ng-show="imgCrop.picFile" style="margin-left:48px;">Remove</button>
+        </fieldset>
+        <br />
+      </form>
+
+      <div ng-if="!imgCrop.myForm.file.$error.dimensions || imgCrop.myForm.file.$valid">
+        <div class="cropArea" id="cropArea1" style="zoom:25%"></div>
+        <div class="cropArea" id="cropArea2" style="zoom:25%"></div>
+        <div class="cropArea" id="cropArea3" style="zoom:25%"></div>
+        <div class="cropArea" id="cropArea4" style="zoom:25%"></div>
+
+      </div>
+      
+      <!--=================================================== file upload card ends ======================================================-->
+
+      <button ng-disabled="imgCrop.myForm.file.$error.dimensions || !imgCrop.myForm.file.$valid" ng-click="imgCrop.submit()" class="btn btn-success" style="width: 130px;cursor: pointer;">Submit now!</button>
+
+    </div>
+
+  </div>
+</div>
+
+<!--=================================================== footer starts ======================================================-->
+
+<footer class="footmar">
+  <div>
+  <br>
+    Created and Designed by:
+    <br>
+    Vivek Shankar<br>
+    <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=viveksome@gmail.com" style="color: white;"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;viveksome@gmail.com</a><br>
+    <a href=""><i class="fa fa-facebook-square" aria-hidden="true" style="color: #3B5998"></i></a>
+    <a href=""><i class="fa fa-google-plus" aria-hidden="true" style="color: #D62221"></i></a>
+    <a href=""><i class="fa fa-twitter-square" aria-hidden="true" style="color: #1DA1F2"></i></a>
+
+  </div>
+</footer>
+
+<!--=================================================== footer ends ======================================================-->
